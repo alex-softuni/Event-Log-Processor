@@ -19,4 +19,16 @@ public class Event {
     private BigDecimal amount;
 
 
+    @Override
+    public String toString() {
+        return "Event{" +
+                "timestamp=" + timestamp +
+                ", eventId=" + eventId +
+                ", userId=" + userId +
+                ", action=" + action +
+                ", articleId='" + articleId + '\'' +
+                ", target='" + target + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }
