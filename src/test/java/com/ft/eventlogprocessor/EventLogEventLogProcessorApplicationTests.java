@@ -4,7 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EventLogEventLogProcessorApplicationTests {
+class
+
+
+
+
+
+
+EventLogEventLogProcessorApplicationTests {
 
     @Test
     void contextLoads() {

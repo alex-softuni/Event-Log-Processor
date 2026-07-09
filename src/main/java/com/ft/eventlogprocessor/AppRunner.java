@@ -30,6 +30,9 @@ public class AppRunner implements CommandLineRunner {
         eventLogProcessor.process();
 
 
+        System.out.println();
+
+
 
         /* Test ensuring proper file reading
         eventFileReader.readEvents(path)

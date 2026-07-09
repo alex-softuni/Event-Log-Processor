@@ -1,5 +1,6 @@
 package com.ft.eventlogprocessor.service.processor;
 
+import com.ft.eventlogprocessor.exception.InvalidEventException;
 import com.ft.eventlogprocessor.model.Event;
 import com.ft.eventlogprocessor.parser.EventParser;
 import com.ft.eventlogprocessor.reader.EventFileReader;
@@ -19,7 +20,6 @@ public class EventLogProcessor {
     private final EventParser parser;
     private final EventFileReader reader;
     private final EventValidator validator;
-
     private final StatisticsAggregator aggregator;
 
     @Autowired
@@ -37,10 +37,11 @@ public class EventLogProcessor {
                     try {
                         Event event = parser.parse(line);
                         validator.validate(event);
+                        aggregator.process(event);
 
 
-                    } catch (Exception e) {
-
+                    } catch (InvalidEventException e) {
+                        aggregator.updateInvalidCount();
                     }
                 });
     }
