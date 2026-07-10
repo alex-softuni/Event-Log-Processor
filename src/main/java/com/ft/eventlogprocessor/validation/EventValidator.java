@@ -40,6 +40,9 @@ public class EventValidator {
             case VIEW -> validateView(event);
             case CLICK -> validateClick(event);
             case PURCHASE -> validatePurchase(event);
+            case LOGIN, LOGOUT -> {
+                // no additional validation required
+            }
         }
     }
 

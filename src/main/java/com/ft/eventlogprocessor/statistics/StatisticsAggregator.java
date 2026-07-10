@@ -3,14 +3,11 @@ package com.ft.eventlogprocessor.statistics;
 import com.ft.eventlogprocessor.model.Action;
 import com.ft.eventlogprocessor.model.Event;
 import lombok.Data;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.math.RoundingMode;
+import java.util.*;
 
 @Data
 @Component
@@ -31,6 +28,7 @@ public class StatisticsAggregator {
         updateEventsPerUser(event);
         updateEventsPerAction(event);
         updatePurchaseStatistics(event);
+
 
     }
 
@@ -54,13 +52,48 @@ public class StatisticsAggregator {
         }
 
         purchaseCount++;
+
         totalPurchaseAmount = totalPurchaseAmount.add(event.getAmount());
-        if (largestPurchase == null || event.getAmount().compareTo(largestPurchase) > 0) {
+
+        if (event.getAmount().compareTo(largestPurchase) > 0) {
             largestPurchase = event.getAmount();
         }
     }
 
     public void updateInvalidCount() {
         totalInvalidEvents++;
+    }
+
+    public BigDecimal getAveragePurchaseAmount() {
+
+        if (purchaseCount == 0) {
+            return BigDecimal.ZERO;
+        }
+
+        return totalPurchaseAmount.divide(BigDecimal.valueOf(purchaseCount), 2, RoundingMode.HALF_UP);
+    }
+
+    public UserActivity getMostActiveUser() {
+
+        return eventsPerUser.entrySet()
+                .stream()
+                .max(Map.Entry.comparingByValue())
+                .map(entry ->
+                        new UserActivity(
+                                entry.getKey(),
+                                entry.getValue()
+                        )
+                )
+                .orElse(null);
+    }
+
+    public List<UserActivity> getMostActiveUsers() {
+
+        return eventsPerUser.entrySet().stream()
+                .sorted(Map.Entry.<UUID, Integer>comparingByValue().reversed())
+                .map(entry -> new UserActivity(
+                        entry.getKey(),
+                        entry.getValue()
+                )).toList();
     }
 }
