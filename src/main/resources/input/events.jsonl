@@ -1,20 +1,16 @@
-{"timestamp":"2026-05-01T10:00:00Z","eventId":"550e8400-e29b-41d4-a716-446655440000","userId":"c1b7d8f0-1c3a-4d95-8d0d-6df3f1d5b001","action":"login"}
-{"timestamp":"2026-05-01T10:01:00Z","eventId":"550e8400-e29b-41d4-a716-446655440001","userId":"c1b7d8f0-1c3a-4d95-8d0d-6df3f1d5b001","action":"view","articleId":"art-100"}
-{"timestamp":"2026-05-01T10:02:00Z","eventId":"550e8400-e29b-41d4-a716-446655440002","userId":"c1b7d8f0-1c3a-4d95-8d0d-6df3f1d5b001","action":"click","target":"subscribe-button"}
-{"timestamp":"2026-05-01T10:03:00Z","eventId":"550e8400-e29b-41d4-a716-446655440003","userId":"d2d44db8-b8d9-4b43-9c2f-3bb47e87f221","action":"purchase","amount":19.99}
-{"timestamp":"2026-05-01T10:04:00Z","eventId":"550e8400-e29b-41d4-a716-446655440004","userId":"d2d44db8-b8d9-4b43-9c2f-3bb47e87f221","action":"purchase","amount":50.00}
-{"timestamp":"2026-05-01T10:05:00Z","eventId":"550e8400-e29b-41d4-a716-446655440005","userId":"8e73f9d7-c2b8-4705-a16f-dc5dfac98201","action":"logout"}
+{"timestamp":"2026-06-01T09:00:00Z","eventId":"650e8400-e29b-41d4-a716-446655440000","userId":"11111111-1111-1111-1111-111111111111","action":"login"}
+{"timestamp":"2026-06-01T09:01:00Z","eventId":"650e8400-e29b-41d4-a716-446655440001","userId":"11111111-1111-1111-1111-111111111111","action":"view","articleId":"article-1"}
+{"timestamp":"2026-06-01T09:02:00Z","eventId":"650e8400-e29b-41d4-a716-446655440002","userId":"11111111-1111-1111-1111-111111111111","action":"click","target":"menu-button"}
+{"timestamp":"2026-06-01T09:03:00Z","eventId":"650e8400-e29b-41d4-a716-446655440003","userId":"22222222-2222-2222-2222-222222222222","action":"purchase","amount":10.50}
+{"timestamp":"2026-06-01T09:04:00Z","eventId":"650e8400-e29b-41d4-a716-446655440004","userId":"22222222-2222-2222-2222-222222222222","action":"purchase","amount":25.00}
+{"timestamp":"2026-06-01T09:05:00Z","eventId":"650e8400-e29b-41d4-a716-446655440005","userId":"33333333-3333-3333-3333-333333333333","action":"logout"}
+{"timestamp":"2026-06-01T09:06:00Z","eventId":"650e8400-e29b-41d4-a716-446655440006","userId":"22222222-2222-2222-2222-222222222222","action":"view","articleId":"article-2"}
+{"timestamp":"2026-06-01T09:07:00Z","eventId":"650e8400-e29b-41d4-a716-446655440007","userId":"22222222-2222-2222-2222-222222222222","action":"click","target":"buy-button"}
 
-INVALID_JSON_LINE
+INVALID_JSON
 
-{"timestamp":"2026-05-01T10:06:00Z","eventId":"NOT-A-UUID","userId":"8e73f9d7-c2b8-4705-a16f-dc5dfac98201","action":"login"}
+{"timestamp":"2026-06-01T09:08:00Z","eventId":"NOT-A-UUID","userId":"33333333-3333-3333-3333-333333333333","action":"login"}
 
-{"timestamp":"2026-05-01T10:07:00Z","eventId":"550e8400-e29b-41d4-a716-446655440007","action":"login"}
+{"timestamp":"2026-06-01T09:09:00Z","eventId":"650e8400-e29b-41d4-a716-446655440009","userId":"11111111-1111-1111-1111-111111111111","action":"purchase"}
 
-{"timestamp":"2026-05-01T10:08:00Z","eventId":"550e8400-e29b-41d4-a716-446655440008","userId":"c1b7d8f0-1c3a-4d95-8d0d-6df3f1d5b001","action":"unknown"}
-
-{"timestamp":"2026-05-01T10:09:00Z","eventId":"550e8400-e29b-41d4-a716-446655440009","userId":"d2d44db8-b8d9-4b43-9c2f-3bb47e87f221","action":"purchase","amount":"invalid"}
-
-{"timestamp":"2026-05-01T10:10:00Z","eventId":"550e8400-e29b-41d4-a716-446655440010","userId":"c1b7d8f0-1c3a-4d95-8d0d-6df3f1d5b001","action":"view"}
-
-{"timestamp":"2026-05-01T10:11:00Z","eventId":"550e8400-e29b-41d4-a716-446655440011","userId":"d2d44db8-b8d9-4b43-9c2f-3bb47e87f221","action":"click"}
+{"timestamp":"2026-06-01T09:10:00Z","eventId":"650e8400-e29b-41d4-a716-446655440010","userId":"33333333-3333-3333-3333-333333333333","action":"unknown"}

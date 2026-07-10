@@ -11,16 +11,15 @@ public class StatisticsReport {
 
         System.out.println("\n===== Event Log Statistics Report =====\n");
 
-        System.out.println("1. Total Valid Events: " + aggregator.getTotalValidEvents());
+        System.out.println("1. Total Valid Events: " + aggregator.getTotalValidEvents() + "\n");
 
-        System.out.println("2. Total Invalid Lines: " + aggregator.getTotalInvalidEvents());
+        System.out.println("2. Total Invalid Lines: " + aggregator.getTotalInvalidEvents() + "\n");
 
         printEventCountPerUser(aggregator);
         printPurchaseStatistics(aggregator);
         printMostActiveUser(aggregator);
         printTop3MostActiveUsers(aggregator.getMostActiveUsers());
         printEventCountPerAction(aggregator);
-
 
         System.out.println("\n======================================");
 
