@@ -96,4 +96,15 @@ public class StatisticsAggregator {
                         entry.getValue()
                 )).toList();
     }
+
+    public List<UserActivity> getTopThreeMostActiveUsers() {
+
+        return eventsPerUser.entrySet().stream()
+                .sorted(Map.Entry.<UUID, Integer>comparingByValue().reversed())
+                .limit(3)
+                .map(entry -> new UserActivity(
+                        entry.getKey(),
+                        entry.getValue()
+                )).toList();
+    }
 }
