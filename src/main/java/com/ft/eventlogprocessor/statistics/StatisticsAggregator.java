@@ -77,20 +77,24 @@ public class StatisticsAggregator {
 
         return eventsPerUser.entrySet()
                 .stream()
-                .max(Map.Entry.comparingByValue())
-                .map(entry ->
-                        new UserActivity(
-                                entry.getKey(),
-                                entry.getValue()
-                        )
+                .sorted(
+                        Map.Entry.<UUID, Integer>comparingByValue()
+                                .reversed()
+                                .thenComparing(entry -> entry.getKey().toString())
                 )
+                .map(entry -> new UserActivity(entry.getKey(), entry.getValue()))
+                .findFirst()
                 .orElse(null);
     }
 
     public List<UserActivity> getMostActiveUsers() {
 
         return eventsPerUser.entrySet().stream()
-                .sorted(Map.Entry.<UUID, Integer>comparingByValue().reversed())
+                .sorted(
+                        Map.Entry.<UUID,Integer>comparingByValue()
+                                .reversed()
+                                .thenComparing(entry -> entry.getKey().toString())
+                )
                 .map(entry -> new UserActivity(
                         entry.getKey(),
                         entry.getValue()
@@ -100,7 +104,11 @@ public class StatisticsAggregator {
     public List<UserActivity> getTopThreeMostActiveUsers() {
 
         return eventsPerUser.entrySet().stream()
-                .sorted(Map.Entry.<UUID, Integer>comparingByValue().reversed())
+                .sorted(
+                        Map.Entry.<UUID,Integer>comparingByValue()
+                                .reversed()
+                                .thenComparing(entry -> entry.getKey().toString())
+                )
                 .limit(3)
                 .map(entry -> new UserActivity(
                         entry.getKey(),
