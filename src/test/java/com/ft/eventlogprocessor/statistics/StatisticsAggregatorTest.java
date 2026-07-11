@@ -11,7 +11,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
-public class StatisticsAggregatorTest {
+class StatisticsAggregatorTest {
 
     @Test
     void shouldIncreaseValidEventCountWhenProcessingEvent() {
@@ -202,8 +202,11 @@ public class StatisticsAggregatorTest {
                 createEvent(userOne, Action.LOGIN),
                 createEvent(userOne, Action.LOGOUT),
                 createEvent(userOne, Action.LOGIN),
+                createEvent(userOne, Action.LOGIN),
                 createEvent(userTwo, Action.LOGIN),
                 createEvent(userTwo, Action.LOGOUT),
+                createEvent(userTwo, Action.LOGOUT),
+                createEvent(userThree, Action.LOGIN),
                 createEvent(userThree, Action.LOGIN),
                 createEvent(userFour, Action.LOGOUT)
         );
@@ -214,9 +217,9 @@ public class StatisticsAggregatorTest {
 
         assertThat(result)
                 .containsExactly(
-                        new UserActivity(userOne, 3),
-                        new UserActivity(userTwo, 2),
-                        new UserActivity(userThree, 1)
+                        new UserActivity(userOne, 4),
+                        new UserActivity(userTwo, 3),
+                        new UserActivity(userThree, 2)
                 );
 
     }

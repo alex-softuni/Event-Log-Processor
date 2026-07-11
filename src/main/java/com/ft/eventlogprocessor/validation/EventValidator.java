@@ -43,6 +43,7 @@ public class EventValidator {
             case LOGIN, LOGOUT -> {
                 // no additional validation required
             }
+            default -> throw new InvalidEventException("Action is missing");
         }
     }
 
